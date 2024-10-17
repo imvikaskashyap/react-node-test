@@ -10,12 +10,11 @@ Complete CRUD operation in Student management page. \
 <mark>/src/modules/students/students-controller.js</mark>
 
 
-<!-- ================================================================================= -->
 
 Solutions 1 -  I make changes here 
 <!-- Before --> this was in the notice-form page
 - <TextField
-        {...register('content')}
+        {...register('content')} // here on this line 
         error={Boolean(errors.description)}
         helperText={errors.description?.message}
         type='text'
@@ -28,7 +27,7 @@ Solutions 1 -  I make changes here
         sx={{ marginTop: '30px' }}
       />
 
-      <!-- After the bug fixing --> we are using content that was not available in the NoticeFormProps => notice-type.ts 
+      <!-- After the bug fixing --> currently we are using 'content' that was not available in the NoticeFormProps => notice-type.ts 
 - <TextField
         {...register('description')}
         error={Boolean(errors.description)}
@@ -43,7 +42,6 @@ Solutions 1 -  I make changes here
         sx={{ marginTop: '30px' }}
       />
 
-<!-- ================================================================================= -->
       <!-- Solution 2   -->
       <!-- I have write all necessary code in the student-controller. I took the reference from student-service.js, student-repository.js, and student-router.js components  -->
       const asyncHandler = require("express-async-handler");
